@@ -1,0 +1,11 @@
+{
+  "name": "hello-circleci",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:villetou/hello-circleci.git",
+  "author": "Ville Touronen <ville.touronen@reaktor.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo 'Hello test'"
+  }
+}
