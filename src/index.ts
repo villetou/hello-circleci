@@ -16,10 +16,7 @@ if (module.hot) {
   console.info('✅  Server-side HMR Enabled!')
 }
 
-// https://github.com/jaredpalmer/razzle/issues/356#issuecomment-432344585
-// A simple workaround for circumventing baking ports into the build
-const getEnv = (key: string) => process.env[key]
-const port = getEnv('PORT') || 3000
+const port = process.env.port || 3000
 
 export default express()
   .use((req, res) => app.handle(req, res))
