@@ -1,1 +1,1 @@
-web: razzle build && razzle start:prod
+web:razzle start:prod
