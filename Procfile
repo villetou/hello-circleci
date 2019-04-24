@@ -1,1 +1,1 @@
-web:yarn start:prod
+web: PORT=80 npm run start:prod
