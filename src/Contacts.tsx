@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom'
 
 import './Home.css'
 
-class Home extends React.Component<{}, {}> {
+class Contacts extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="Home">
         <div className="Home-header">
           <img src={logo} className="Home-logo" alt="logo" />
-          <h2>Welcome to Razzle</h2>
+          <h2>Contacts</h2>
         </div>
         <p className="Home-intro">
-          Home Page
+          Contacts page would be nice! 😎
         </p>
         <ul className="Home-resources">
           <li>
@@ -29,4 +29,4 @@ class Home extends React.Component<{}, {}> {
   }
 }
 
-export default Home
+export default Contacts
