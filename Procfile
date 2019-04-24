@@ -1,0 +1,1 @@
+web: razzle build && razzle start:prod
