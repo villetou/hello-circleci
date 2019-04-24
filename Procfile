@@ -1,1 +1,1 @@
-web:razzle start:prod
+web:yarn start:prod
