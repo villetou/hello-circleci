@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 
 import App from './App'
+import { isHeroku } from './server_helpers'
 
 let assets: any
 
@@ -14,7 +15,7 @@ syncLoadAssets()
 
 const server = express()
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
+  .use(express.static(isHeroku ? '/app/build/public' : process.env.RAZZLE_PUBLIC_DIR!))
   .get('/*', (req: express.Request, res: express.Response) => {
     const context = {}
     const markup = renderToString(

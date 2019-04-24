@@ -1,4 +1,5 @@
 import express from 'express'
+import { getEnv } from './server_helpers'
 
 // this require is necessary for server HMR to recover from error
 // tslint:disable-next-line:no-var-requires
@@ -16,7 +17,7 @@ if (module.hot) {
   console.info('✅  Server-side HMR Enabled!')
 }
 
-const port = process.env.port || 3000
+const port = getEnv('PORT') || 3000
 
 export default express()
   .use((req, res) => app.handle(req, res))
