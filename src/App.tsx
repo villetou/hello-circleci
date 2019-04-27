@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Contacts from './Contacts'
 import Home from './Home'
 
-import './App.css'
+import './App.scss'
 
 const App = () => (
   <Switch>

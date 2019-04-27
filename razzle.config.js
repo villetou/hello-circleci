@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  plugins: ['typescript'],
+  plugins: ['typescript', 'scss-with-modules'],
   modify: (config, { target }) => {
     // https://github.com/jaredpalmer/razzle/issues/412#issuecomment-347760191
     // Fixes static assets path (required svgs, images, etc) for SSR

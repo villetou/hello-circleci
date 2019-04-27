@@ -3,20 +3,20 @@ import logo from './react.svg'
 
 import { Link } from 'react-router-dom'
 
-import './Home.css'
+import css from './Home.module.scss'
 
 class Home extends React.Component<{}, {}> {
   public render() {
     return (
-      <div className="Home">
-        <div className="Home-header">
-          <img src={logo} className="Home-logo" alt="logo" />
+      <div className={css.home}>
+        <div className={css.header}>
+          <img src={logo} className={css.logo} alt="logo" />
           <h2>Welcome to Razzle</h2>
         </div>
-        <p className="Home-intro">
+        <p className={css.intro}>
           Home Page
         </p>
-        <ul className="Home-resources">
+        <ul className={css.resources}>
           <li>
             <Link to="/">Home</Link>
           </li>
