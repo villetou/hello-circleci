@@ -15,11 +15,19 @@ const syncLoadAssets = () => {
   assets = require(process.env.RAZZLE_ASSETS_MANIFEST!)
 }
 syncLoadAssets()
-
+// Cache-Control: public, max-age=31536000
 const server = express()
   .disable('x-powered-by')
-  .use(cors({origin: process.env.HOST}))
-  .use(express.static(isHeroku ? '/app/build/public' : process.env.RAZZLE_PUBLIC_DIR!))
+  .use(cors({ origin: process.env.CORS_HOST || process.env.HOST }))
+  .use(
+    express.static(
+      isHeroku ? '/app/build/public' : process.env.RAZZLE_PUBLIC_DIR!,
+      {
+        immutable: true,
+        maxAge: '7d',
+      }
+    )
+  )
   .get('/*', (req: express.Request, res: express.Response) => {
     const context = {}
     const markup = renderToString(
@@ -36,10 +44,10 @@ const server = express()
         <title>Razzle TypeScript</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${
-          assets.client.css
-            ? `<link rel="stylesheet" href="${assets.client.css}">`
-            : ''
-        }
+      assets.client.css
+        ? `<link rel="stylesheet" href="${assets.client.css}">`
+        : ''
+      }
           ${`<script src="${assets.client.js}" defer crossorigin></script>`}
     </head>
     <body>
